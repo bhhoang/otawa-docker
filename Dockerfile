@@ -57,8 +57,8 @@ RUN git clone https://git.renater.fr/anonscm/git/gliss2/gliss2.git && \
     cd gliss2 && \
     make && \
     cd .. && \
-    git clone https://git.renater.fr/anonscm/git/gliss2/armv5t.git && \
-    cd armv5t && \
+    git clone https://git.renater.fr/anonscm/git/gliss2/armv7t.git && \
+    cd armv7t && \
     make WITH_DYNLIB=1 && \
     cd .. && \
     git clone https://git.renater.fr/anonscm/git/otawa/otawa-arm.git && \
