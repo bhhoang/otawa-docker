@@ -48,9 +48,9 @@ RUN git clone https://git.renater.fr/anonscm/git/otawa/otawa.git && \
     cd otawa && \
     cmake . -DCMAKE_INSTALL_PREFIX=/opt/otawa_install && \
     make install
-
-# Set the environment path for OTAWA executables and libraries
-ENV PATH="/opt/otawa_build/gliss2/tools:${PATH}"
+    
+# Set environment variables for the container
+ENV PATH="/opt/otawa_install/bin:${PATH}"
 
 # Install gliss2 loader (example: arm)
 RUN git clone https://git.renater.fr/anonscm/git/gliss2/gliss2.git && \
@@ -94,8 +94,6 @@ RUN git clone https://git.renater.fr/anonscm/git/otawa/obviews.git && \
     cmake . -DCMAKE_INSTALL_PREFIX=/opt/otawa_install && \
     make install
 
-# Set environment variables for the container
-ENV PATH="/opt/otawa_install/bin:${PATH}"
 
 # Set the working directory for the container
 WORKDIR /opt/otawa_install
