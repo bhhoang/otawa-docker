@@ -52,12 +52,6 @@ RUN git clone https://git.renater.fr/anonscm/git/otawa/otawa.git && \
 # Set the environment path for OTAWA executables and libraries
 RUN echo 'export PATH=$PATH:/opt/otawa_install/bin' >> /etc/profile
 
-# Clone micro-architecture (example: lpc2138 ARM)
-RUN git clone https://git.renater.fr/anonscm/git/otawa/lpc2138.git && \
-    cd lpc2138 && \
-    cmake . && \
-    make install
-
 # Install gliss2 loader (example: arm)
 RUN git clone https://git.renater.fr/anonscm/git/gliss2/gliss2.git && \
     cd gliss2 && \
@@ -69,6 +63,12 @@ RUN git clone https://git.renater.fr/anonscm/git/gliss2/gliss2.git && \
     cd .. && \
     git clone https://git.renater.fr/anonscm/git/otawa/otawa-arm.git && \
     cd otawa-arm && \
+    cmake . && \
+    make install
+
+# Clone micro-architecture (example: lpc2138 ARM)
+RUN git clone https://git.renater.fr/anonscm/git/otawa/lpc2138.git && \
+    cd lpc2138 && \
     cmake . && \
     make install
 
@@ -86,6 +86,13 @@ RUN git clone https://git.renater.fr/anonscm/git/orange/Frontc.git && \
     git clone https://git.renater.fr/anonscm/git/orange/orange.git && \
     cd orange && \
     make install ONLY_APP=1 PREFIX=/opt/otawa_install
+
+
+# Install obviews tool
+RUN git clone https://git.renater.fr/anonscm/git/otawa/obviews.git && \
+    cd obviews && \
+    cmake . -DCMAKE_INSTALL_PREFIX=/opt/otawa_install && \
+    make install
 
 # Set environment variables for the container
 ENV PATH="/opt/otawa_install/bin:${PATH}"
