@@ -50,7 +50,7 @@ RUN git clone https://git.renater.fr/anonscm/git/otawa/otawa.git && \
     make install
 
 # Set the environment path for OTAWA executables and libraries
-RUN echo 'export PATH=$PATH:/opt/otawa_install/bin' >> /etc/profile
+ENV PATH="/opt/otawa_build/gliss2/tools:${PATH}"
 
 # Install gliss2 loader (example: arm)
 RUN git clone https://git.renater.fr/anonscm/git/gliss2/gliss2.git && \
